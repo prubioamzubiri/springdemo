@@ -18,8 +18,6 @@ jobs:
           java-version: 1.13
       - name: Maven Package
         run: mvn -B clean package -DskipTests
-  deploy:
-    name: Deploy on docker
-    runs:
-      using: 'docker'
-      image: 'Dockerfile'    
+      - name: Docker creation
+        run: docker build --tag springdemo
+  
