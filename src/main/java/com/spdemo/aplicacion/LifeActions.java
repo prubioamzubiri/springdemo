@@ -1,6 +1,6 @@
-package com.example.aplicacion;
+package com.spdemo.aplicacion;
 
-import com.example.dominio.Persona;
+import com.spdemo.dominio.Persona;
 
 import org.apache.commons.lang3.NotImplementedException;
 
