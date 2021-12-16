@@ -1,4 +1,4 @@
-package com.spdemo.springdemo;
+package com.spdemo.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,11 +27,9 @@ public class PersonaController {
 
     
     @GetMapping("/{id}")
-    Persona getPersona(@PathVariable String id)
+    public Persona getPersona(@PathVariable String id)
     {
-        Persona toReturn = repository.getPersona(id);
-
-        return toReturn;
+        return repository.getPersona(id);
     }
     
 }
