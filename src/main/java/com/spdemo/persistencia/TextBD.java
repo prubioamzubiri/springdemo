@@ -1,4 +1,4 @@
-package com.example.persistencia;
+package com.spdemo.persistencia;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -13,7 +13,7 @@ import java.util.Set;
 
 import javax.management.InvalidAttributeValueException;
 
-import com.example.dominio.Persona;
+import com.spdemo.dominio.Persona;
 
 public class TextBD implements IGBD{
     

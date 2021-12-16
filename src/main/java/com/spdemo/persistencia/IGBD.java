@@ -1,6 +1,6 @@
-package com.example.persistencia;
+package com.spdemo.persistencia;
 
-import com.example.dominio.Persona;
+import com.spdemo.dominio.Persona;
 
 public interface IGBD {
 
