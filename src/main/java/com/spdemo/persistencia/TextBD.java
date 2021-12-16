@@ -15,9 +15,11 @@ import javax.management.InvalidAttributeValueException;
 
 import com.spdemo.dominio.Persona;
 
+
 public class TextBD implements IGBD{
     
     private Map<String, Persona> datos;
+
 
     public TextBD()
     {
@@ -27,6 +29,36 @@ public class TextBD implements IGBD{
     public TextBD(File f) throws IOException, InvalidAttributeValueException
     {
         datos = new HashMap<String, Persona>();
+        load(f);
+    }
+
+    @Override
+    public Persona getPersona(String id) {
+
+        Persona to_return = null;
+
+        if(datos.containsKey(id))
+        {
+            to_return = datos.get(id);
+        }
+        return to_return;
+
+    }
+
+    @Override
+    public void addPersona(Persona persona) {
+        
+        String id = persona.getId();
+
+        if(!datos.containsKey(id))
+        {
+            datos.put(id, persona);
+        }
+        
+    }
+
+    public void load(File f) throws InvalidAttributeValueException, NumberFormatException, IOException
+    {
         BufferedReader br = null;
 
         try {
@@ -61,8 +93,7 @@ public class TextBD implements IGBD{
                 }
                 
             }
-
-        } 
+        }
         catch (FileNotFoundException e) 
         {
             e.printStackTrace();
@@ -71,35 +102,14 @@ public class TextBD implements IGBD{
         {
             if(br != null)
             {
-                br.close();
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
-        }
-    }
-
-    @Override
-    public Persona getPersona(String id) {
-
-        Persona to_return = null;
-
-        if(datos.containsKey(id))
-        {
-            to_return = datos.get(id);
-        }
-        return to_return;
-
-    }
-
-    @Override
-    public void addPersona(Persona persona) {
-        
-        String id = persona.getId();
-
-        if(!datos.containsKey(id))
-        {
-            datos.put(id, persona);
-        }
-        
+        }    
     }
 
     public void save() throws IOException
