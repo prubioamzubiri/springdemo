@@ -21,4 +21,6 @@ jobs:
         run: mvn -B clean package -DskipTests
       - name: Docker creation
         run: docker build . --tag springdemo
+      
+      
   
