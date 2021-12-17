@@ -78,7 +78,7 @@ public class TextBD implements IGBD{
                     persona = new Persona(sep[0], sep[1], Integer.parseInt(sep[2]));
 
                 }
-                else if(sep.length ==4)
+                else if(sep.length == 4)
                 {
                     persona = new Persona(sep[0], sep[1], Integer.parseInt(sep[2]), Boolean.parseBoolean(sep[3]));
                 }
