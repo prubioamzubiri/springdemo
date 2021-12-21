@@ -29,9 +29,7 @@ jobs:
         with:
           username: ${{secrets.dockerhub_username}}
           password: ${{secrets.dockerhub_password}}
-      - name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: prubioam/springdemo
+      - name: Build
+        run: docker build . springdemo
+      - name: docker push
+        run: docker push springdemo
