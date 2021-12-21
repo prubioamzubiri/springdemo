@@ -1,4 +1,7 @@
 HELP.md
+## target/, pero conservando el .jar
+#target/*/
+#target/*.original
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
