@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Random;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class PersonaTest {
     @Test
-    void testHBirthday() {
+    public void testHBirthday() {
 
         Random random = new Random();
         int initAge = random.nextInt();
