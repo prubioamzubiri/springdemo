@@ -4,11 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.spdemo.dominio.Persona;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
 
 public class LifeActionsTest {
     @Test
-    void testMayorDeEdad() {
+    public void testMayorDeEdad() {
 
         Persona persona17 = new Persona("a","b",17);
         Persona persona18 = new Persona("a","b",18);
@@ -30,7 +31,7 @@ public class LifeActionsTest {
     }
 
     @Test
-    void testMorir() {
+    public void testMorir() {
 
         Persona persona = new Persona("a","b",80);
         boolean resultA = persona.isAlive();
