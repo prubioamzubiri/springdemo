@@ -23,8 +23,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
-          username: prubioam
-          password: pruebatknika
+          username: ${{secrets.dockerhub_username}}
+          password: ${{secrets.dockerhub_password}}
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
