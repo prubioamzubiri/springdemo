@@ -16,8 +16,10 @@ jobs:
           java-version: 1.13
       - name: Maven Package without test
         run: mvn -B clean package -DskipTests
-      - name: pwd
+      - name: pwd 
         run: pwd
+      - name: ls -l
+        run: ls -l /home/runner/work/springdemo/springdemo/target
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
