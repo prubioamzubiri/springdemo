@@ -21,10 +21,7 @@ jobs:
       - name: ls -l
         run: ls -l /home/runner/work/springdemo/springdemo/target
       - name: Login to DockerHub
-        uses: docker/login-action@v1 
-        with:
-          username: ${{secrets.dockerhub_username}}
-          password: ${{secrets.dockerhub_password}}
+        run: docker login -u ${{secrets.dockerhub_username}} -p ${{secrets.dockerhub_password}}
       - name: Docker Build
         run: docker build . --tag springdemo
       - name: Docker push
