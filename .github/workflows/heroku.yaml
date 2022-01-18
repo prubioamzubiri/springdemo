@@ -41,3 +41,5 @@ jobs:
           heroku_app_name: "pruebaspring1234"
           heroku_email: "prubioam@zubirimanteo.com"
           usedocker: true
+        env:
+          PORT: 8080
