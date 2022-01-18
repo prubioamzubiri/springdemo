@@ -10,5 +10,3 @@ vscode:
       - vscjava.vscode-maven
       - vscjava.vscode-java-dependency
       - redhat.java
-ports:
-  - port: 8080
