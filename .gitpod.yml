@@ -1,5 +1,7 @@
 tasks:
   - init: ./mvnw install -DskipTests=false
+  - command: curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash | mv bin/act /usr/local/bin/act
+    
 vscode:
   extensions:
       - vscjava.vscode-java-pack
