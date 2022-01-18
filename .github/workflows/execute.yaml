@@ -1,5 +1,5 @@
 
-name: executeonpush
+name: execute
 
 on:
   push:
