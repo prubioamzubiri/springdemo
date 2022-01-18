@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 maven.zip
+bin/
 
 ### STS ###
 .apt_generated
