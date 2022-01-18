@@ -1,13 +1,13 @@
+name: CI pull Request Act
 
-name: execute act
-
-on:
-  push:
+on: 
+  pull_request:
     branches:
       - 'noone'
+
 jobs:
-  Execute:
-    name: Execution
+  Unit_Tests:
+    name: Unit Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -26,5 +26,5 @@ jobs:
           echo "M2_HOME=/usr/share/apache-maven-3.6.3" | tee -a /etc/environment
       - name: Maven Package without test
         run: mvn -B clean package -DskipTests
-      - name: Execute
-        run: java -jar target/*.jar
+      - name: Test all the proyect
+        run: mvn verify
