@@ -21,8 +21,6 @@ public class PersonaController {
 
     PersonaController(TextBD repository) throws InvalidAttributeValueException, NumberFormatException, IOException {
       this.repository = repository;
-      File file = new File("./datos.txt");
-      repository.load(file);
     }
 
     
