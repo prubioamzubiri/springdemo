@@ -3,9 +3,9 @@ name: cd
 on:
   push:
     branches:
-      - 'master'
-    tags:
-      - 'v*'
+      - 'no_executable'
+#    tags:
+#      - 'v*'
 
 jobs:
   docker:
