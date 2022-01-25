@@ -1,6 +1,9 @@
 # https://github.com/actions/runner/issues/1007
 # This is a basic workflow to help you get started with Actions
 
+# Next website has the workflow to push a docker to GitHub Registry and DockerHub Registry
+# https://docs.github.com/en/actions/publishing-packages/publishing-docker-images
+
 name: deploy-on-heroku
 
 # Controls when the action will run.
@@ -58,3 +61,5 @@ jobs:
 #          context: .
 #          push: true
 #          tags: ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_PROYECT}}:${{ env.RELEASE_VERSION }}
+
+
