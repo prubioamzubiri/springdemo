@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = "com.spdemo.controller")
 @ComponentScan(basePackages = "com.spdemo.persistencia")
+@ComponentScan(basePackages = "com.spdemo.aplicacion")
 public class SpringdemoApplication {
 
 	public static void main(String[] args) {
