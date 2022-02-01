@@ -1,12 +1,29 @@
 package com.spdemo.dominio;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "PERSONA")
 public class Persona {
     
+    @Id
+    @Column(name = "id")
     private String id;
+    @Column(name="name")
     private String name;
+    @Column(name="age")
     private int age;
+    @Column(name="alive")
     private boolean alive;
+    
 
+    public Persona()
+    {
+        this.id="";
+        this.name="";
+        this.age=0;
+        this.alive=true;
+    }
 
     
     public Persona(String id, String name, int age)
@@ -24,6 +41,7 @@ public class Persona {
         this.name=name;
         this.alive=alive;
     }
+    
 
     public void hBirthday()
     {
