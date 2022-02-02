@@ -37,4 +37,11 @@ public class LoadDataBase {
       return session;
     }
     
+    @Bean
+    HibernateDB getHibernateDB(Session session)
+    {
+      HibernateDB hibernateDB = new HibernateDB(session);
+
+      return hibernateDB;
+    }
 }

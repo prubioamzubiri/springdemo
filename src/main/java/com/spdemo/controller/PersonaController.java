@@ -5,11 +5,8 @@ import java.io.IOException;
 
 import javax.management.InvalidAttributeValueException;
 
-
-
 import com.spdemo.aplicacion.IPersonaAplication;
 import com.spdemo.dominio.Persona;
-
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

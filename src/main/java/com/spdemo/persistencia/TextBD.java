@@ -156,4 +156,10 @@ public class TextBD implements IGBD{
    
     }
 
+    @Override
+    public void removePersona(Persona persona) {
+        // TODO Auto-generated method stub
+        
+    }
+
 }
