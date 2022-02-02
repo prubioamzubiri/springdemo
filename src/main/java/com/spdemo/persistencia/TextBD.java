@@ -16,7 +16,7 @@ import javax.management.InvalidAttributeValueException;
 import com.spdemo.dominio.Persona;
 
 
-public class TextBD implements IGBD{
+public class TextBD implements IPersonaGBD{
     
     private Map<String, Persona> datos;
 
@@ -157,7 +157,7 @@ public class TextBD implements IGBD{
     }
 
     @Override
-    public void removePersona(Persona persona) {
+    public void removePersona(String id) {
         // TODO Auto-generated method stub
         
     }

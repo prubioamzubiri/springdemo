@@ -1,9 +1,5 @@
 package com.spdemo.persistencia;
 
-import java.io.File;
-import java.io.IOException;
-import javax.management.InvalidAttributeValueException;
-
 import com.spdemo.dominio.Persona;
 
 import org.hibernate.Session;
@@ -19,15 +15,6 @@ import org.hibernate.cfg.Configuration;
 public class PersistenceBeanConfiguration {
 
     @Bean
-    TextBD getTextBD() throws InvalidAttributeValueException, NumberFormatException, IOException {
-
-      TextBD repository = new TextBD(); 
-      File file = new File("./datos.txt");
-      repository.load(file);
-      return repository;
-    }
-
-    @Bean
     Session getSession()
     {
       SessionFactory factory = new Configuration().configure().addAnnotatedClass(Persona.class).buildSessionFactory();
@@ -38,9 +25,9 @@ public class PersistenceBeanConfiguration {
     }
     
     @Bean
-    HibernateDB getHibernateDB(Session session)
+    IPersonaGBD getIPersonaGDB(Session session)
     {
-      HibernateDB hibernateDB = new HibernateDB(session);
+      IPersonaGBD hibernateDB = new HibernatePersonaDB(session);
 
       return hibernateDB;
     }

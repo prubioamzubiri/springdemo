@@ -2,7 +2,7 @@ package com.spdemo.persistencia;
 
 import com.spdemo.dominio.Persona;
 
-public interface IGBD {
+public interface IPersonaGBD {
 
     /**
      * Se obtiene una persona de la BD mediante su identificador.
@@ -15,6 +15,6 @@ public interface IGBD {
 
     public void updatePersona(Persona persona);
 
-    public void removePersona(Persona persona);
+    public void removePersona(String id);
     
 }

@@ -4,11 +4,11 @@ import com.spdemo.dominio.Persona;
 
 import org.hibernate.Session;
 
-public class HibernateDB implements IGBD{
+public class HibernatePersonaDB implements IPersonaGBD{
 
     private Session session;
 
-    public HibernateDB(Session session)
+    public HibernatePersonaDB(Session session)
     {
         this.session = session;
                  
@@ -47,9 +47,9 @@ public class HibernateDB implements IGBD{
     }
 
     @Override
-    public void removePersona(Persona persona) {
+    public void removePersona(String id) {
         
-        Persona p = (Persona) session.get(Persona.class, persona.getId());
+        Persona p = (Persona) session.get(Persona.class, id);
 
         if(p!=null)
         {
