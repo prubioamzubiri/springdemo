@@ -6,4 +6,8 @@
 # Conect to mysql server with root user from command line
 # docker exec -it mysql-server mysql -uroot -p
 
- docker run --detach --name=prueba -p 3306:3306 --env="MYSQL_ROOT_PASSWORD=1234" mysql
+ docker run --detach --name=nombre_container -p 3306:3306 --env="MYSQL_ROOT_PASSWORD=1234" mysql
+
+ # Iniciar docker a posterior
+
+ docker start nombre_container
