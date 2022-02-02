@@ -16,7 +16,7 @@ import org.hibernate.cfg.Configuration;
 
 //Para diferenciarlo de la Configuracion de Hibernate
 @org.springframework.context.annotation.Configuration
-public class LoadDataBase {
+public class PersistenceBeanConfiguration {
 
     @Bean
     TextBD getTextBD() throws InvalidAttributeValueException, NumberFormatException, IOException {
