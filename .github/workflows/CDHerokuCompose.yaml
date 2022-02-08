@@ -36,6 +36,8 @@ jobs:
       # Builds Maven Proyect
       - name: Maven Package without test
         run: mvn -B clean package -DskipTests
+      - name: Pull Docker Compose images
+        run: docker-compose pull
 #      Builds a Docker and deploys on Heroku
     #  - name: Deploy on Heroku
     #    uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
