@@ -45,4 +45,4 @@ jobs:
             environment-variables: PORT=80
             name: aci-sampleapp
             location: 'east us'
-            ports: 8080
+            #ports: 8080
