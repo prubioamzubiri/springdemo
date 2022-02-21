@@ -27,7 +27,7 @@ public class PersistenceBeanConfiguration {
     @Bean
     IPersonaGBD getIPersonaGDB(Session session)
     {
-      IPersonaGBD hibernateDB = new HibernatePersonaDB(session);
+      IPersonaGBD hibernateDB = new TextDB(session);
 
       return hibernateDB;
     }
