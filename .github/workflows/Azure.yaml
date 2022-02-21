@@ -16,8 +16,8 @@ jobs:
       # Builds Maven Proyect
         - name: Maven Package without test
           run: mvn -B clean package -DskipTests 
-          
-            
+
+
         - name: 'Login via Azure CLI'
           uses: azure/login@v1
           with:
@@ -42,5 +42,6 @@ jobs:
             registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
             registry-username: ${{ secrets.REGISTRY_USERNAME }}
             registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+            environment-variables: PORT=80
             name: aci-sampleapp
             location: 'east us'
