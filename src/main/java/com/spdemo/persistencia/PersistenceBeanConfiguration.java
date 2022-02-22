@@ -27,21 +27,21 @@ public class PersistenceBeanConfiguration {
 
       String connectionURL;
 
-      String host = System.getProperty("host")!=null? System.getProperty("host") : "127.0.0.1";
-      String port = System.getProperty("port")!=null? System.getProperty("port") : "3306";
-      String database = System.getProperty("database")!=null? System.getProperty("database") : "database1";
+      // -Dhost=host -Dport=port -Ddatabase=databasename
+
+      String host = System.getProperty("dbhost")!=null? System.getProperty("dbhost") : "127.0.0.1";
+      String port = System.getProperty("dbport")!=null? System.getProperty("dbport") : "3306";
+      String database = System.getProperty("dbatabase")!=null? System.getProperty("dbdatabase") : "database1";
 
       connectionURL = "jdbc:mysql://" + host + ":" + port + "/" + database;
-
       cfg.setProperty("hibernate.connection.url", connectionURL);
 
-
-      String user = System.getProperty("user")!=null? System.getProperty("user") : "root";
-
+      // -Duser=user
+      String user = System.getProperty("dbuser")!=null? System.getProperty("dbuser") : "root";
       cfg.setProperty("hibernate.connection.username", user);
 
-      String password = System.getProperty("password")!=null? System.getProperty("password") : "root";
-
+      //-Dpassword=password
+      String password = System.getProperty("dbpassword")!=null? System.getProperty("dbpassword") : "root";
       cfg.setProperty("hibernate.connection.password", password);
 
       SessionFactory factory = cfg.configure().addAnnotatedClass(Persona.class).buildSessionFactory();

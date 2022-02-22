@@ -3,7 +3,6 @@ services:
   web:
     container_name: java
     build: .
-    image: tknikaresourceprueba1.azurecr.io/springdemo
     ports:
       - "8080:8080"
     #env_file: .env
