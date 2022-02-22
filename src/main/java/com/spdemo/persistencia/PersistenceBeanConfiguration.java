@@ -18,7 +18,7 @@ import java.io.IOException;
 //Para diferenciarlo de la Configuracion de Hibernate
 @org.springframework.context.annotation.Configuration
 public class PersistenceBeanConfiguration {
-/*
+
     @Bean
     Session getSession()
     {
@@ -28,17 +28,10 @@ public class PersistenceBeanConfiguration {
 
       return session;
     }
- */   
+    
     @Bean
-    IPersonaGBD getIPersonaGDB() throws InvalidAttributeValueException, NumberFormatException, IOException
+    IPersonaGBD getIPersonaGDB(Session s) throws InvalidAttributeValueException, NumberFormatException, IOException
     {
-      TextBD hibernateDB = new TextBD();
-
-      File f = new File("./datos.txt"); 
-
-      hibernateDB.load(f);
-      
-
-      return hibernateDB;
+      return new HibernatePersonaDB(s);
     }
 }
