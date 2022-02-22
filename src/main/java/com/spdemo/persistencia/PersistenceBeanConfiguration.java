@@ -13,6 +13,7 @@ import org.hibernate.cfg.Configuration;
 
 import javax.management.InvalidAttributeValueException;
 import java.io.IOException;
+import java.util.Properties;
 
 
 //Para diferenciarlo de la Configuracion de Hibernate
@@ -22,7 +23,28 @@ public class PersistenceBeanConfiguration {
     @Bean
     Session getSession()
     {
-      SessionFactory factory = new Configuration().configure().addAnnotatedClass(Persona.class).buildSessionFactory();
+      Configuration cfg = new Configuration();
+
+      String connectionURL;
+
+      String host = System.getProperty("host")!=null? System.getProperty("host") : "127.0.0.1";
+      String port = System.getProperty("port")!=null? System.getProperty("port") : "3306";
+      String database = System.getProperty("database")!=null? System.getProperty("database") : "database1";
+
+      connectionURL = "jdbc:mysql://" + host + ":" + port + "/" + database;
+
+      cfg.setProperty("hibernate.connection.url", connectionURL);
+
+
+      String user = System.getProperty("user")!=null? System.getProperty("user") : "root";
+
+      cfg.setProperty("hibernate.connection.username", user);
+
+      String password = System.getProperty("password")!=null? System.getProperty("password") : "root";
+
+      cfg.setProperty("hibernate.connection.password", password);
+
+      SessionFactory factory = cfg.configure().addAnnotatedClass(Persona.class).buildSessionFactory();
 
       Session session = factory.openSession();
 
