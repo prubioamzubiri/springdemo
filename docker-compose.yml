@@ -3,7 +3,7 @@ services:
   web:
     container_name: java
     build: .
-    image: ${{secrets.REGISTRY_LOGIN_SERVER}}/springdemo:${{github.sha}}
+    image: tknikaresourceprueba1.azurecr.io/springdemo
     ports:
       - "8080:8080"
     #env_file: .env
