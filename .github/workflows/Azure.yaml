@@ -16,7 +16,7 @@ jobs:
       # Builds Maven Proyect
         - name: Maven Package without test
           run: mvn -B clean package -DskipTests 
-
+#            docker-compose build -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
 
         - name: 'Login via Azure CLI'
           uses: azure/login@v1
@@ -30,7 +30,7 @@ jobs:
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |
-            docker-compose build -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
+            docker-compose build
             docker-compose push ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
 
         - name: 'Deploy to Azure Container Instances'
