@@ -5,12 +5,16 @@ services:
     build: .
     ports:
       - "8080:8080"
-    #env_file: .env
-    env_file: ./.env
     depends_on:
       - db
     expose:
       - '8080'
+    environment:
+      - DBHOST=${DBHOST}
+      - DBPORT=${DBPORT}
+      - DATABASE=${DBDATABASE}
+      - DBUSER=${DBUSER}
+      - DBPASSWORD=${DBPASSWORD}
     volumes:
       - ./webapp:/opt/webapp
   db:
