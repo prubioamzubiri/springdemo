@@ -1,6 +1,5 @@
 tasks:
   - init: ./mvnw install -DskipTests=false
-  - init: curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash && sudo mv bin/act /usr/local/bin/act && sudo rm -r bin
     
 vscode:
   extensions:
