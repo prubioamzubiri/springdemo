@@ -27,21 +27,21 @@ public class PersistenceBeanConfiguration {
 
       String connectionURL;
 
-      // -Dhost=host -Dport=port -Ddatabase=databasename
+      // -Ddbhost=host -Ddbport=port -Ddbdatabase=databasename
 
-      String host = System.getProperty("dbhost")!=null? System.getProperty("dbhost") : "127.0.0.1";
-      String port = System.getProperty("dbport")!=null? System.getProperty("dbport") : "3306";
-      String database = System.getProperty("dbatabase")!=null? System.getProperty("dbdatabase") : "database1";
+      String host = getProperty("dbhost", "127.0.0.1");
+      String port = getProperty("dbport","3306");
+      String database = getProperty("dbdatabase","database1");
 
       connectionURL = "jdbc:mysql://" + host + ":" + port + "/" + database;
       cfg.setProperty("hibernate.connection.url", connectionURL);
 
-      // -Duser=user
-      String user = System.getProperty("dbuser")!=null? System.getProperty("dbuser") : "root";
+      // -Ddbuser=user
+      String user = getProperty("dbuser", "root")
       cfg.setProperty("hibernate.connection.username", user);
 
-      //-Dpassword=password
-      String password = System.getProperty("dbpassword")!=null? System.getProperty("dbpassword") : "root";
+      //-Ddbpassword=password
+      String password = getProperty("dbpassword","root");
       cfg.setProperty("hibernate.connection.password", password);
 
       SessionFactory factory = cfg.configure().addAnnotatedClass(Persona.class).buildSessionFactory();
@@ -55,5 +55,13 @@ public class PersistenceBeanConfiguration {
     IPersonaGBD getIPersonaGDB(Session s) throws InvalidAttributeValueException, NumberFormatException, IOException
     {
       return new HibernatePersonaDB(s);
+    }
+
+    private String getProperty(String data, String defaultValue){
+        String info = System.getProperty(data);
+        if (info == null){
+          info = defaultValue;
+        }
+        return info;
     }
 }
