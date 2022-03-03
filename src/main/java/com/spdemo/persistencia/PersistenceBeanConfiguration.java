@@ -37,7 +37,7 @@ public class PersistenceBeanConfiguration {
       cfg.setProperty("hibernate.connection.url", connectionURL);
 
       // -Ddbuser=user
-      String user = getProperty("dbuser", "root")
+      String user = getProperty("dbuser", "root");
       cfg.setProperty("hibernate.connection.username", user);
 
       //-Ddbpassword=password
