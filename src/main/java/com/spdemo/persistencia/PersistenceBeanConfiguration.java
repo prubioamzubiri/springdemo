@@ -28,7 +28,7 @@ public class PersistenceBeanConfiguration {
       String connectionURL;
 
       // -Ddbhost=host -Ddbport=port -Ddbdatabase=databasename
-
+      // String host = (System.getProperty("dbhost")==null)? "127.0.0.1":System.getProperty(data);
       String host = getProperty("dbhost", "127.0.0.1");
       String port = getProperty("dbport","3306");
       String database = getProperty("dbdatabase","database1");
