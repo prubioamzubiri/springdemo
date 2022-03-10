@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <PERSONA id='0001'  name='victor'    age='7'     alive='true'/>
+    <PERSONA id='0002'  name='juan'      age='81'    alive='false'/>
+    <PERSONA id='0003'  name='pepe'      age='21'    alive='true'/>
+</dataset>

@@ -5,6 +5,7 @@ target/
 !**/src/test/**/target/
 maven.zip
 bin/
+log.azure
 
 ### STS ###
 .apt_generated
