@@ -66,5 +66,25 @@ public class AnotherBDTest {
         assertEquals(p.isAlive(), p2.isAlive());
         assertEquals(p.getName(), p2.getName());
     }
+
+    @Test
+    public void prueba2test()
+    {
+        Persona p;
+
+        if((p = gbd.getPersona("0001")) == null)
+        {
+            p = new Persona("0001", "name", 1);
+            gbd.addPersona(p);
+         
+        }
+
+        gbd.removePersona("0001");
+        p = gbd.getPersona("0001");
+
+        assertEquals(p, null);
+
+        
+    }
     
 }
