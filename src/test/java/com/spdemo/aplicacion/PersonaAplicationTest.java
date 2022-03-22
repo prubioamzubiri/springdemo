@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import org.hibernate.cfg.Configuration;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Order;
@@ -20,31 +21,47 @@ import org.junit.Test;
 public class PersonaAplicationTest {
 
     private static Session session;
-    private static Persona p;
-    private static String id;
+
     private static PersonaAplication pa;
 
     @Before
     public void createContext()
     {
-        SessionFactory factory = new Configuration().configure().addAnnotatedClass(Persona.class).buildSessionFactory();
+
+        Configuration cfg = new Configuration();
+
+        String connectionURL;
+  
+        connectionURL = "jdbc:h2:mem:default";
+        cfg.setProperty("hibernate.connection.url", connectionURL);
+  
+        cfg.setProperty("hibernate.connection.driver_class","org.h2.Driver");
+        cfg.setProperty("hibernate.dialect","org.hibernate.dialect.H2Dialect");
+
+        cfg.setProperty("hibernate.connection.username", "sa");
+
+        cfg.setProperty("hibernate.connection.password", "sa");
+  
+        SessionFactory factory = cfg.configure().addAnnotatedClass(Persona.class).buildSessionFactory();
 
         session = factory.openSession();
 
-        id = "0014";
-        
-        p = new Persona(id, "pepe", 4);
-       /* Persona p = new Persona();
-        p.setId(id);
-        p.setAge(4);
-        p.setName("name");
-        p.setAlive(true);*/
+
 
         pa = new PersonaAplication(session);
     }
 
     @Test
     public void AtestAddPersona() {
+
+        String id = "0014";
+        
+        Persona p = new Persona(id, "pepe", 4);
+       /* Persona p = new Persona();
+        p.setId(id);
+        p.setAge(4);
+        p.setName("name");
+        p.setAlive(true);*/
 
         pa.addPersona(p);
 
@@ -67,11 +84,19 @@ public class PersonaAplicationTest {
     @Test
     public void CtestRemovePersona() {
 
+        String id = "0014";
+        
         pa.removePersona(id);
 
         Persona p3 = pa.getPersona(id);
 
         assertEquals(p3, null);
 
+    }
+
+    @After
+    public void close()
+    {
+        session.close();
     }
 }
