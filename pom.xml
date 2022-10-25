@@ -70,7 +70,7 @@
 				</configuration>
 			</plugin>
 								<!-- attached to Maven test phase -->
-			<!-- <plugin>
+			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.2</version>
@@ -89,7 +89,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin> -->
+			</plugin>
 			  <!--
 			  <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
