@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk13:jre-13.0.2_8-alpine
+FROM eclipse-temurin:17.0.4.1_1-jre-alpine
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 COPY ./datos.txt datos.txt
